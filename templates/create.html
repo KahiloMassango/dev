@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h4><a href="{% url "list" actual_list.id %}">Go back to {{ actual_list.title }}</a></h4>
+    <form method="POST">
+        {% csrf_token %}  
+        {{ form.as_p }}
+        
+        <p>
+        <label for="id_due_date">Due date:</label>
+        <input type="date" name="due_date" required="" id="id_due_date">
+        </p>
+        <input type="submit" value="Create">
+    </form>
+
+{% endblock %}
+</html>
